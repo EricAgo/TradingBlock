@@ -1,0 +1,36 @@
+table {
+  min-width: 500px;
+  border-radius: 7px;
+  border-spacing: 0;
+  border: 1px solid black;
+}
+
+table:hover {
+    transition: 0.3s;
+    border-color: white;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 54px 55px, rgba(0, 0, 0, 0.52) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+table:hover {
+    flex-grow: 1;
+}
+
+th,
+td {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.boxStyle {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.greenChange {
+    color: green;
+}
+
+.redChange {
+    color: red
+}
