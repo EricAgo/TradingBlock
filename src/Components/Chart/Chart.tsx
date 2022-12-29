@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Chart.css"
+import { StockSymbol } from "../../Types/Stock"
 
-const Chart = ({ stockValue, stock }) => {
-  const [dataSet, setDataSet] = useState(1);
+interface PropTypes {
+  stockValue : Float32Array;
+  stock : StockSymbol;
+}
+
+const Chart = ({ stockValue, stock } : PropTypes) : JSX.Element => {
+  const [dataSet, setDataSet] = useState<Float32Array[] | number>([]);
 
   useEffect(() => {
     //get last price and store it
-    stockValue && setDataSet([dataSet[1], stockValue]);
+     stockValue && setDataSet([dataSet[1], stockValue]);
   }, [stockValue]);
 
   return (

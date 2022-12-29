@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import "./App.css";
 
-function App() {
+const App = () : JSX.Element => {
   return (
     <div className="App">
       <Dashboard />

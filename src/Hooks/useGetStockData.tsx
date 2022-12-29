@@ -1,18 +1,20 @@
 
+import { StockSymbol, StockObject } from "../Types/Stock";
+
 //getRandomStock range function
 //generates a value that is rounded to the nearest nickel within a range of +- 5
 //@param minStockValue is the minimum value allowed for the stock
 //@param maxStockValue is the maximum value allowed for the stock
 //@return decimal integer with length two precision e.g .00
-const getRandomStockRange = (minStockValue, maxStockValue) => {
+const getRandomStockRange = (minStockValue: number, maxStockValue: number) : string => {
   //scale factor which attenuates possible values
-  let scaleFactor = (Math.random() * 10) + 1
+  const scaleFactor = (Math.random() * 10) + 1
   //number between min and max
   let number = (Math.random() * ((maxStockValue / scaleFactor) - (minStockValue / scaleFactor)) + minStockValue);
   //number is checked to be within a specified range
   number = Math.max(minStockValue, Math.min(maxStockValue, number));
   //nearest nickel rounding factor
-  let roundingFactor = 0.05;
+  const roundingFactor = 0.05;
   //round value
   number = Math.round(number / roundingFactor) * roundingFactor;
   //truncate precision
@@ -22,7 +24,7 @@ const getRandomStockRange = (minStockValue, maxStockValue) => {
 //generates a random value for a given stock symbol
 //@param string mapping to a stock symbol
 //@return decimal integer with length two precision e.g .00
-const randomStockValueGenerator = (stock) => {
+const randomStockValueGenerator = (stock : StockSymbol) : string => {
   switch (stock) {
     //microsoft stock case
     case "MSFT":
@@ -33,16 +35,12 @@ const randomStockValueGenerator = (stock) => {
     //amazon stock case
     case "AMZN":
       return getRandomStockRange(90.0, 100.0);
-    //error case
-    default:
-      "Cannot find that stock symbol";
-      break;
   }
 };
 
 //generates the object array for each stock price simulating an API call for stock prices
 //@return Object with keys for stock and their current value
-const generateStocksObject = () => {
+const generateStocksObject = () : StockObject => {
   return {
     MSFT: randomStockValueGenerator("MSFT"),
     AAPL: randomStockValueGenerator("AAPL"),
@@ -52,8 +50,8 @@ const generateStocksObject = () => {
 
 //get stock data hook used to simualate an API call
 //@return Object with keys for stock and their current value
-const useGetStockData = () => {
-  return [generateStocksObject()];
+const useGetStockData = ()  => {
+  return generateStocksObject();
 };
 
 export default useGetStockData;
